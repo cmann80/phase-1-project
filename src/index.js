@@ -1,48 +1,70 @@
-//get form elements
+//get left form elements
 const leftForm = document.getElementById('left_form')
-const rightForm = document.getElementById('right_form')
+const leftAge = document.getElementById('left_age')
+const leftGender = document.getElementById('left_gender')
+const leftNationality = document.getElementById('left_nationality')
 
+// get right form elements
+const rightForm = document.getElementById('right_form')
+const rightAge = document.getElementById('right_age')
+const rightGender = document.getElementById('right_gender')
+const rightNationality = document.getElementById('right_nationality')
+
+// function to query agify.io
+function getAge(name) {
+    fetch(`https://api.agify.io?name=${name}`)
+    .then (res => res.json())
+    .then (nameEntry => {
+        const ageDisplay = nameEntry.age;
+        console.log(nameEntry)
+        return ageDisplay;
+        
+    })
+// console.log(rightAge.textContent)
+    
+}
 
 
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const leftName = leftForm.name.value
-    getAge(leftName)
-    getGender(leftName)
+    console.log(leftName)
+    leftAge.textContent = getAge(leftName)
+    console.log(leftAge.textContent)
+    // getGender(leftName)
     // getNationality(leftName)
 })
+
 
 // get user input from right form and call functions
 rightForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const rightName = rightForm.name.value
-    getAge(rightName)
-    getGender(rightName)
+    rightAge.textContent = getAge(rightName)
+    console.log(rightAge.textContent)
+    // getGender(rightName)
     // getNationality(leftName)
 })
 
 
 
 
-// function to query agify.io
-function getAge(name) {
-    // todo
-    console.log('age')
-}
 
+// console.log(getAge(michael))
 
-// function to query genderize.io 
-function getGender(name){
+// function to query genderize.io and display
+// function getGender(name){
 // todo
-console.log('gender')
-}
+// console.log('gender')
+// }
 
-function getNationality(name){
-console.log('gender')
-}
+// // function to query nationalize.io and display (stretch goal)
+// function getNationality(name){
+// console.log('gender')
+// }
 
-// function to query nationalize.io
+
 
 
 // display data
