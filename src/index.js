@@ -1,8 +1,14 @@
-//get form elements
+//get left form elements
 const leftForm = document.getElementById('left_form')
+const leftAge = document.getElementById('left_age')
+const leftGender = document.getElementById('left_gender')
+const leftNationality = document.getElementById('left_nationality')
+
+// get right form elements
 const rightForm = document.getElementById('right_form')
-
-
+const rightAge = document.getElementById('right_age')
+const rightGender = document.getElementById('right_gender')
+const rightNationality = document.getElementById('right_nationality')
 
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
@@ -27,22 +33,23 @@ rightForm.addEventListener('submit', (event) => {
 
 // function to query agify.io
 function getAge(name) {
-    // todo
+    
     console.log('age')
 }
 
 
-// function to query genderize.io 
+// function to query genderize.io and display
 function getGender(name){
 // todo
 console.log('gender')
 }
 
-function getNationality(name){
-console.log('gender')
-}
+// // function to query nationalize.io and display (stretch goal)
+// function getNationality(name){
+// console.log('gender')
+// }
 
-// function to query nationalize.io
+
 
 
 // display data
