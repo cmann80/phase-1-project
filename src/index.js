@@ -1,4 +1,3 @@
-//debugger
 
 //get left form elements
 const leftForm = document.getElementById('left_form')
@@ -19,6 +18,7 @@ function getAge(name) {
     .then (res => res.json())
     .then (nameEntry => {
         const ageDisplay = nameEntry.age;
+
         //console.log(ageDisplay)
         return ageDisplay;  
     })
@@ -31,10 +31,12 @@ leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const leftName = leftForm.name.value
     console.log(leftName)
+
      
     
     leftAge.textContent = getAge(leftName)
     //console.log(leftAge.textContent)  
+
 })
 
 
@@ -44,26 +46,37 @@ rightForm.addEventListener('submit', (event) => {
     const rightName = rightForm.name.value
     rightAge.textContent = getAge(rightName)
     console.log(rightAge.textContent)
-    getGender(rightName)
-    getNationality(leftName)
+
+    // getGender(rightName)
+    // getNationality(leftName)
+
 })
 
 
+// dark mode
+document.documentElement.setAttribute('data-theme', 'dark');
+const themeSwitcher = document.getElementById("theme-switcher");
+themeSwitcher.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const switchToTheme = currentTheme === "dark" ? "light" : 'dark'
+    document.documentElement.setAttribute('data-theme', switchToTheme);
+})
 
 
 
 // console.log(getAge(michael))
 
 // function to query genderize.io and display
-function getGender(name){
-todo
-console.log('gender')
-}
+// function getGender(name){
+// todo
+// console.log('gender')
+// }
 
-// function to query nationalize.io and display (stretch goal)
-function getNationality(name){
-console.log('gender')
-}
+// // function to query nationalize.io and display (stretch goal)
+// function getNationality(name){
+// console.log('gender')
+// }
+
 
 
 
