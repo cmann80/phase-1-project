@@ -48,7 +48,14 @@ rightForm.addEventListener('submit', (event) => {
 })
 
 
-
+// dark mode
+document.documentElement.setAttribute('data-theme', 'dark');
+const themeSwitcher = document.getElementById("theme-switcher");
+themeSwitcher.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const switchToTheme = currentTheme === "dark" ? "light" : 'dark'
+    document.documentElement.setAttribute('data-theme', switchToTheme);
+})
 
 
 // console.log(getAge(michael))

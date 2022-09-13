@@ -12,5 +12,11 @@ git merge branch-name : merge a branch into your current branch to bring it up t
 git log : show all commits in the current branch’s history
 
 
+LOL 
+
+sources:
+https://www.pullrequest.com/blog/how-to-implement-dark-mode-with-css-js/=======
+
  grid-template-columns: 50vw 50vw;
     grid-gap: 10px;
+
