@@ -9,14 +9,11 @@ git commit -m "your detailed commit message" : commit your staged content as a n
 git pull origin main : pull changes from the remote main branch to your branch
 git push origin branch-name : transmit your local branch (branch-name ) to the remote repo
 git merge branch-name : merge a branch into your current branch to bring it up to date
+
 git log : show all commits in the current branch’s history
-
-
-LOL 
 
 sources:
 https://www.pullrequest.com/blog/how-to-implement-dark-mode-with-css-js/=======
 
- grid-template-columns: 50vw 50vw;
-    grid-gap: 10px;
+
 

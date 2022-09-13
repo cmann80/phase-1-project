@@ -1,3 +1,4 @@
+
 //get left form elements
 const leftForm = document.getElementById('left_form')
 const leftAge = document.getElementById('left_age')
@@ -10,30 +11,32 @@ const rightAge = document.getElementById('right_age')
 const rightGender = document.getElementById('right_gender')
 const rightNationality = document.getElementById('right_nationality')
 
+
 // function to query agify.io
 function getAge(name) {
     fetch(`https://api.agify.io?name=${name}`)
     .then (res => res.json())
     .then (nameEntry => {
         const ageDisplay = nameEntry.age;
-        console.log(nameEntry)
-        return ageDisplay;
-        
+
+        //console.log(ageDisplay)
+        return ageDisplay;  
     })
-// console.log(rightAge.textContent)
-    
 }
 
+//fetch(`https://api.genderize.io?name=${name}`)
 
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const leftName = leftForm.name.value
     console.log(leftName)
+
+     
+    
     leftAge.textContent = getAge(leftName)
-    console.log(leftAge.textContent)
-    // getGender(leftName)
-    // getNationality(leftName)
+    //console.log(leftAge.textContent)  
+
 })
 
 
@@ -43,8 +46,10 @@ rightForm.addEventListener('submit', (event) => {
     const rightName = rightForm.name.value
     rightAge.textContent = getAge(rightName)
     console.log(rightAge.textContent)
+
     // getGender(rightName)
     // getNationality(leftName)
+
 })
 
 
@@ -56,6 +61,7 @@ themeSwitcher.addEventListener('click', () => {
     const switchToTheme = currentTheme === "dark" ? "light" : 'dark'
     document.documentElement.setAttribute('data-theme', switchToTheme);
 })
+
 
 
 // console.log(getAge(michael))
@@ -70,6 +76,7 @@ themeSwitcher.addEventListener('click', () => {
 // function getNationality(name){
 // console.log('gender')
 // }
+
 
 
 
