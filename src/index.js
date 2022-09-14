@@ -14,40 +14,40 @@ const rightNationality = document.getElementById('right_nationality')
 
 // function to query agify.io
 function getAge(name) {
-    fetch(`https://api.agify.io?name=${name}`)
-    // .then (res => res.json())
-    // .then (nameEntry => {
-    
-    // const ageDisplay = nameEntry.age;
-    return fetch
-     
-    } //)
-// }
+    return fetch(`https://api.agify.io?name=${name}`)
+    .then (res => res.json())
+}
 
-//fetch(`https://api.genderize.io?name=${name}`)
+
+
 
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    const leftName = leftForm.name.value
-    const leftAgeValue = setTimeout(getAge(leftName), 500)
-    leftAge.textContent = `You are probably around ${leftAgeValue} years old!`
+    
+    getAge(leftForm.name.value)
+    .then((value) => {
+        leftAge.textContent = `You are probably around ${value.age} years old!`
+        console.log(value)
+    })
+    
 
     
 })
 
+// console.log(getAge('Christopher'))
 // get user input from right form and call functions
 rightForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const rightName = rightForm.name.value
-    const rightAgeValue = setTimeout(getAge(rightName), 500)
+    const rightAgeValue = setTimeout(getAge(rightName), 50)
     rightAge.textContent = `You are probably around ${rightAgeValue} years old!`
 
     // getGender(rightName)
     // getNationality(leftName)
 
 })
-
+// console.log(getAge('Chris'))
 
 // dark mode
 document.documentElement.setAttribute('data-theme', 'dark');
