@@ -1,4 +1,3 @@
-
 //get left form elements
 const leftForm = document.getElementById('left_form')
 const leftAge = document.getElementById('left_age')
@@ -14,11 +13,15 @@ const rightGender = document.getElementById('right_gender')
 const rightNationality = document.getElementById('right_nationality')
 const rightYear = document.getElementById('right_year')
 
+//get todays date and gets the year
+const today = new Date();
+const year = today.getFullYear();
+//console.log(today)
+//console.log(year)
+
 // get country codes.names
 const regionNames = new Intl.DisplayNames(
     ['en'], {type: 'region'})
-
-    
 
 // function to query agify.io for age
 function getAge(name) {
@@ -55,9 +58,10 @@ leftForm.addEventListener('submit', (event) => {
         })
     
     // get the birth year for the left name form
+    // uses the current year so it'll always be correct
     getYear(leftForm.name.value)
     .then ((data)=>{
-    leftYear.textContent = `${leftForm.name.value} may have been born in ${2022 - data.age}!`
+    leftYear.textContent = `${leftForm.name.value} may have been born in ${year - data.age}!`
     })
 
     // get gender for left form
@@ -84,9 +88,10 @@ rightForm.addEventListener('submit', (event) => {
     })
 
     // get the birth year for the right name form
+    // uses the current year so it'll always be correct
     getYear(rightForm.name.value)
     .then ((data)=>{
-    rightYear.textContent = `${rightForm.name.value} may have been born in ${2022 - data.age}!`
+    rightYear.textContent = `${rightForm.name.value} may have been born in ${year - data.age}!`
     })
 
     // get gender for right name form
@@ -104,9 +109,6 @@ rightForm.addEventListener('submit', (event) => {
 
 })
 
-
-
-
 // dark mode
 document.documentElement.setAttribute('data-theme', 'dark');
 const themeSwitcher = document.getElementById("theme-switcher");
@@ -115,32 +117,3 @@ themeSwitcher.addEventListener('click', () => {
     const switchToTheme = currentTheme === "dark" ? "light" : 'dark'
     document.documentElement.setAttribute('data-theme', switchToTheme);
 })
-
-
-
-// console.log(getAge(michael))
-
-// function to query genderize.io and display
-// function getGender(name){
-// todo
-// console.log('gender')
-// }
-
-// // function to query nationalize.io and display (stretch goal)
-// function getNationality(name){
-// console.log('gender')
-// }
-
-
-
-
-
-// display data
-// interpolate results to:
-// "you are most likely to be x years old!"
-// "you are most likely to be x!" (gender)
-// "you are most likely to be from x!" (country)
-
-
-
-// light/dark mode switch
