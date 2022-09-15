@@ -8,7 +8,11 @@ const leftYear = document.getElementById('left_year')
 
 // get right form elements
 const rightForm = document.getElementById('right_form')
+<<<<<<< HEAD
 //console.log(rightForm)
+=======
+console.log(rightForm)
+>>>>>>> main
 const rightAge = document.getElementById('right_age')
 const rightGender = document.getElementById('right_gender')
 const rightNationality = document.getElementById('right_nationality')
@@ -45,6 +49,7 @@ leftForm.addEventListener('submit', (event) => {
     // get age for left form
     getAge(leftForm.name.value)
     .then((data) => {
+<<<<<<< HEAD
         leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!` 
         })
         .then ((data)=>{
@@ -52,6 +57,10 @@ leftForm.addEventListener('submit', (event) => {
     
         })
     
+=======
+        leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!`
+    })
+>>>>>>> main
     
     // get gender for left form
     getGender(leftForm.name.value)
@@ -62,7 +71,11 @@ leftForm.addEventListener('submit', (event) => {
     // get top nationality for left form
     getNationality(leftForm.name.value)
     .then((data) => {
+<<<<<<< HEAD
         leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}! `
+=======
+        leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}, `
+>>>>>>> main
     })
 
 })
