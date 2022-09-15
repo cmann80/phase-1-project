@@ -8,11 +8,7 @@ const leftYear = document.getElementById('left_year')
 
 // get right form elements
 const rightForm = document.getElementById('right_form')
-<<<<<<< HEAD
 //console.log(rightForm)
-=======
-console.log(rightForm)
->>>>>>> main
 const rightAge = document.getElementById('right_age')
 const rightGender = document.getElementById('right_gender')
 const rightNationality = document.getElementById('right_nationality')
@@ -24,8 +20,14 @@ const regionNames = new Intl.DisplayNames(
 
     
 
-// function to query agify.io
+// function to query agify.io for age
 function getAge(name) {
+    return fetch(`https://api.agify.io?name=${name}`)
+    .then (res => res.json())
+}
+
+// function to query agigy.io for birth year
+function getYear(name) {
     return fetch(`https://api.agify.io?name=${name}`)
     .then (res => res.json())
 }
@@ -49,19 +51,15 @@ leftForm.addEventListener('submit', (event) => {
     // get age for left form
     getAge(leftForm.name.value)
     .then((data) => {
-<<<<<<< HEAD
         leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!` 
         })
-        .then ((data)=>{
-            leftYear.textContent = `${2022 - data.age}`
     
-        })
-    
-=======
-        leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!`
+    // get the birth year for the left name form
+    getYear(leftForm.name.value)
+    .then ((data)=>{
+    leftYear.textContent = `${leftForm.name.value} may have been born in ${2022 - data.age}!`
     })
->>>>>>> main
-    
+
     // get gender for left form
     getGender(leftForm.name.value)
     .then((data) => {
@@ -71,13 +69,8 @@ leftForm.addEventListener('submit', (event) => {
     // get top nationality for left form
     getNationality(leftForm.name.value)
     .then((data) => {
-<<<<<<< HEAD
         leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}! `
-=======
-        leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}, `
->>>>>>> main
     })
-
 })
 
 // get user input from right form and call functions
@@ -88,9 +81,14 @@ rightForm.addEventListener('submit', (event) => {
     getAge(rightForm.name.value)
     .then((data) => {
         rightAge.textContent = `${rightForm.name.value} may be around ${data.age} years old!`
-     //   
     })
-  
+
+    // get the birth year for the right name form
+    getYear(rightForm.name.value)
+    .then ((data)=>{
+    rightYear.textContent = `${rightForm.name.value} may have been born in ${2022 - data.age}!`
+    })
+
     // get gender for right name form
     getGender(rightForm.name.value)
     .then((data) => {
