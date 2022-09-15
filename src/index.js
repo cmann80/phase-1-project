@@ -7,10 +7,16 @@ const leftNationality = document.getElementById('left_nationality')
 
 // get right form elements
 const rightForm = document.getElementById('right_form')
+console.log(rightForm)
 const rightAge = document.getElementById('right_age')
 const rightGender = document.getElementById('right_gender')
 const rightNationality = document.getElementById('right_nationality')
 
+// get country codes.names
+const regionNames = new Intl.DisplayNames(
+    ['en'], {type: 'region'})
+
+    
 
 // function to query agify.io
 function getAge(name) {
@@ -18,36 +24,72 @@ function getAge(name) {
     .then (res => res.json())
 }
 
+// function to query genderize.io
+function getGender(name) {
+    return fetch(`https://api.genderize.io?name=${name}`)
+    .then (res => res.json())
+}
 
-
+// function to query nationize.io
+function getNationality(name) {
+    return fetch(`https://api.nationalize.io?name=${name}`)
+    .then (res => res.json())
+}
 
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
     
+    // get age for left form
     getAge(leftForm.name.value)
-    .then((value) => {
-        leftAge.textContent = `You are probably around ${value.age} years old!`
-        console.log(value)
+    .then((data) => {
+        leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!`
     })
     
+    // get gender for left form
+    getGender(leftForm.name.value)
+    .then((data) => {
+        leftGender.textContent = `${leftForm.name.value} may be ${data.gender}!`
+    })
+     
+    // get top nationality for left form
+    getNationality(leftForm.name.value)
+    .then((data) => {
+        console.log(data)
+        leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}`
+    })
 
-    
 })
 
-// console.log(getAge('Christopher'))
 // get user input from right form and call functions
 rightForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    const rightName = rightForm.name.value
-    const rightAgeValue = setTimeout(getAge(rightName), 50)
-    rightAge.textContent = `You are probably around ${rightAgeValue} years old!`
-
-    // getGender(rightName)
-    // getNationality(leftName)
+  
+    // get age for right name form
+    getAge(rightForm.name.value)
+    .then((data) => {
+        rightAge.textContent = `${rightForm.name.value} may be around ${data.age} years old!`
+     //   
+    })
+  
+    // get gender for right name form
+    getGender(rightForm.name.value)
+    .then((data) => {
+        rightGender.textContent = `${rightForm.name.value} may be ${data.gender}!`
+        console.log(rightForm.name.value)
+    })
+    
+    // get top nationality for right form
+    getNationality(rightForm.name.value)
+    .then((data) => {
+        console.log(data)
+        rightNationality.textContent = `${rightForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}!`
+    })
 
 })
-// console.log(getAge('Chris'))
+
+
+
 
 // dark mode
 document.documentElement.setAttribute('data-theme', 'dark');
