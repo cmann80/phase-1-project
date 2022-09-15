@@ -8,6 +8,12 @@ https://api.nationalize.io
 
 which in turn get their data from international databases of population data.
 
+There appear to be some errors in the data itself; you may see a nationalities result like:
+
+1. Japan
+2. 
+3. Italy
+
 
 sources:
 
