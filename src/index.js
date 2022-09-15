@@ -55,8 +55,7 @@ leftForm.addEventListener('submit', (event) => {
     // get top nationality for left form
     getNationality(leftForm.name.value)
     .then((data) => {
-        console.log(data)
-        leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}`
+        leftNationality.textContent = `${leftForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}, `
     })
 
 })
@@ -76,13 +75,12 @@ rightForm.addEventListener('submit', (event) => {
     getGender(rightForm.name.value)
     .then((data) => {
         rightGender.textContent = `${rightForm.name.value} may be ${data.gender}!`
-        console.log(rightForm.name.value)
+        
     })
     
     // get top nationality for right form
     getNationality(rightForm.name.value)
     .then((data) => {
-        console.log(data)
         rightNationality.textContent = `${rightForm.name.value} may be from ${regionNames.of(data.country[0].country_id)}!`
     })
 
