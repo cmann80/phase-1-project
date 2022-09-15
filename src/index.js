@@ -52,12 +52,12 @@ function getNationality(name) {
 // get user input from left form and call functions 
 leftForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    
+        
     // get age for left form
     getAge(leftForm.name.value)
     .then((data) => {
         leftAge.textContent = `${leftForm.name.value} may be around ${data.age} years old!` 
-        })
+    })
 
     
     // get the birth year for the left name form
@@ -78,17 +78,18 @@ leftForm.addEventListener('submit', (event) => {
     getNationality(leftForm.name.value)
     .then((data) => {
 
-        leftNationality.textContent = 'You may be from one of the following countries'
+        leftNationality.textContent = `${leftForm.name.value} may be from one of the following countries:`
         leftNationalityList.innerHTML = ''
         data.country.forEach(country => {
             const listItem = document.createElement('li')
             listItem.textContent = regionNames.of(country.country_id)
             leftNationalityList.append(listItem)
+            
         })
-        
+    
     })
-    leftForm.reset()
-
+    
+    
 })
 
 // get user input from right form and call functions
@@ -118,17 +119,18 @@ rightForm.addEventListener('submit', (event) => {
     // get top nationality for right form
     getNationality(rightForm.name.value)
     .then((data) => {
-        rightNationality.textContent = 'You may be from one of the following countries'
+        rightNationality.textContent = `${leftForm.name.value} may be from one of the following countries:`
         rightNationalityList.innerHTML = ''
         data.country.forEach(country => {
             const listItem = document.createElement('li')
             listItem.textContent = regionNames.of(country.country_id)
             rightNationalityList.append(listItem)
             console.log(country)
+            
         })
         
     })
-
+    
 })
 
 // dark mode
