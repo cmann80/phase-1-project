@@ -13,27 +13,29 @@
 
     <button id="theme-switcher">Light/Dark Mode</button>
     <h1 align = center>Name Data Results</h1>
-    <h2 align = center>Put two names into the text fields and it will return a guess of its age and gender!</h2>
+    <h2 align = center>Put two names into the text fields and it will guess their name, gender and nationality!</h2>
     <div>
         <span class= 'form'>
             <form id="left_form">
-            <input name = "name" type = "text" id="left_text_entry">
+            <input name = "name" type = "text" id="left_text_entry" placeholder = 'type name here'>
             <input name = "submit" type = 'submit' id="left_text_submit">
             </form>
-            <p id="left_age">age goes here</p>
-            <p id="left_year">birth year goes here</p>
-            <p id="left_gender">gender goes here</p>
-            <p id="left_nationality">nationality goes here</p>
+            <p id="left_age"></p>
+            <p id="left_year"></p>
+            <p id="left_gender"></p>
+            <p id="left_nationality"></p>
+            <ol id = left_nationality_list></ol>
         </span>
         <span class = 'form'>
             <form id="right_form">
-                <input name = "name" type = "text" id="right_text_entry">
+                <input name = "name" type = "text" id="right_text_entry" placeholder ='type name here'>
                 <input name = "input" type = 'submit' id="right_text_submit">
             </form>
-            <p id="right_age">age goes here</p>
-            <p id="right_year">birth year goes here</p> 
-            <p id="right_gender">gender goes here</p>
-            <p id="right_nationality">nationality goes here</p>
+            <p id="right_age"></p>
+            <p id="right_year"></p> 
+            <p id="right_gender"></p>
+            <p id="right_nationality"></p>
+            <ol id ="right_nationality_list"></ol>
     </div>
 
 
