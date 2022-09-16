@@ -119,7 +119,7 @@ rightForm.addEventListener('submit', (event) => {
     // get top nationality for right form
     getNationality(rightForm.name.value)
     .then((data) => {
-        rightNationality.textContent = `${leftForm.name.value} may be from one of the following countries:`
+        rightNationality.textContent = `${rightForm.name.value} may be from one of the following countries:`
         rightNationalityList.innerHTML = ''
         data.country.forEach(country => {
             const listItem = document.createElement('li')
