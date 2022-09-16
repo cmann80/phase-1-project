@@ -4,9 +4,9 @@
 ## Descripion 
 This website will take in names and output a guess about their most likely age, gender and nationality. The data comes from three sources: 
 
-https://api.agify.io
-https://api.genderize.io
-https://api.nationalize.io
+- https://api.agify.io
+- https://api.genderize.io
+- https://api.nationalize.io
 
 which in turn get their data from international databases of population data.
 
